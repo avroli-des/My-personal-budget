@@ -81,7 +81,7 @@ export const generateDummyData = (): AppData => {
     };
     
     return {
-        appName: 'Мій Бюджет',
+        appName: 'Мій Супер Бюджет',
         categoryGroups,
         transactions,
         accounts,

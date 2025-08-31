@@ -529,7 +529,7 @@ const ReportsPage: React.FC<ReportsPageProps> = ({ categoryGroups, transactions,
       <div className="max-w-7xl mx-auto">
         <div className="bg-white p-6 rounded-lg shadow-sm border border-slate-200 text-center">
           <ChartIcon className="mx-auto h-12 w-12 text-slate-400" />
-          <h2 className="mt-4 text-xl font-semibold text-slate-800">Звіти</h2>
+          <h2 className="mt-4 text-xl font-semibold text-slate-800">Звіти (Тестове оновлення)</h2>
           <p className="mt-2 text-slate-500">Додайте транзакції, щоб побачити візуалізацію ваших фінансів.</p>
         </div>
       </div>
