@@ -20,7 +20,8 @@ export interface UserProfile {
 }
 
 // Define a structured error type
-interface AuthError {
+// FIX: Renamed from AuthError to DisplayableAuthError to avoid name collision with FirebaseAuthError.
+interface DisplayableAuthError {
   title: string;
   message: string;
   domain?: string;
@@ -46,7 +47,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [user, setUser] = useState<UserProfile | null>(null);
   const [firebaseUser, setFirebaseUser] = useState<FirebaseUser | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [authError, setAuthError] = useState<AuthError | null>(null); // State for auth errors
+  // FIX: Updated state type to use the renamed DisplayableAuthError interface.
+  const [authError, setAuthError] = useState<DisplayableAuthError | null>(null); // State for auth errors
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (fbUser) => {
@@ -80,7 +82,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       console.error("Firebase sign-in error:", error);
       
       const firebaseError = error as FirebaseAuthError;
-      let newError: AuthError = {
+      // FIX: Updated variable type to use the renamed DisplayableAuthError interface.
+      let newError: DisplayableAuthError = {
           title: "Помилка автентифікації",
           message: "Не вдалося увійти. Спробуйте ще раз."
       };

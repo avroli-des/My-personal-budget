@@ -12,7 +12,6 @@ import ImportDataModal from './components/ImportDataModal';
 import AddAccountModal from './components/AddAccountModal';
 import AchievementToast from './components/gamification/AchievementToast';
 import { Category, CategoryGroup, Transaction, Account, IncomeSource, IncomeCategory, MonthlyGoals, MonthlyGoal, UnlockedAchievements, Achievement, AchievementWithStatus, InvestmentPlatform, CurrencySettings, Currency, AppData } from './types';
-// FIX: Module '"./dummyData"' has no exported member 'createEmptyAppData'.
 import { generateDummyData } from './dummyData';
 import { AuthProvider, AuthContext } from './contexts/AuthContext';
 import { CurrencyProvider } from './contexts/CurrencyContext';
@@ -87,7 +86,6 @@ const hydrateAppData = (data: Partial<AppData>): AppData => {
     console.log('Before hydration:', (fullData.incomeSources || []).map(s => s.id));
     const hydratedIncomeSources = (fullData.incomeSources || []).map(is => ({ 
         ...is,
-// FIX: Ensure every income source has a valid ID
         id: is.id || uuidv4(), 
         expectedAmount: is.expectedAmount ?? 0, 
         category: is.category ?? 'other', 
@@ -336,7 +334,6 @@ const AppContent: React.FC = () => {
 
             const newTransactions = prev.transactions.filter(t => !transactionsToRemove.has(t.id));
             
-            // FIX: Explicitly type the Map to ensure correct type inference.
             const accountsMap = new Map<string, Account>(prev.accounts.map(acc => [acc.id, { ...acc }]));
 
             removedTransactionsDetails.forEach(transaction => {

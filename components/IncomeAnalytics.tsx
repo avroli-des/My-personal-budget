@@ -1,7 +1,3 @@
-
-
-
-
 import React, { useState, useMemo } from 'react';
 import {
   Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ArcElement, PointElement, LineElement, Filler, DoughnutController,
@@ -98,7 +94,6 @@ const IncomeAnalytics: React.FC<IncomeAnalyticsProps> = ({ transactions, incomeS
         if (!processedData) return null;
         const { monthKeys, incomeByMonth, goalsByMonth } = processedData;
 
-        // FIX: Explicitly typing the reduce accumulator ensures correct type inference.
         const totalIncome = Array.from(incomeByMonth.values()).reduce((sum: number, val: number) => sum + val, 0);
         const averageMonthlyIncome = totalIncome / monthKeys.length;
 
@@ -116,8 +111,6 @@ const IncomeAnalytics: React.FC<IncomeAnalyticsProps> = ({ transactions, incomeS
         });
         const goalAchievementRate = monthsWithGoals > 0 ? (monthsGoalsMet / monthsWithGoals) * 100 : 0;
         
-        // FIX: Explicitly set the generic type on the `reduce` function to ensure TypeScript
-        // correctly infers the type of the accumulator `best`, allowing numeric comparison on `best[1]`.
         const bestMonthEntry = Array.from(incomeByMonth.entries()).reduce<[string, number]>((best, current) => (current[1] > best[1] ? current : best), ['', 0]);
         const bestMonth = {
             month: bestMonthEntry[0],

@@ -1,7 +1,3 @@
-
-
-
-
 import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { InvestmentPlatform, Transaction, InvestmentPlatformCategory } from '../types';
 import { formatDisplayAmount, getCurrencyClass } from '../helpers';
@@ -80,7 +76,6 @@ const InvestmentPlatformsSection: React.FC<InvestmentPlatformsSectionProps> = ({
     }, [transactions]);
     
     const totalInvested = Array.from(investedByPlatform.values()).reduce((sum: number, val: number) => sum + val, 0);
-    // FIX: Explicitly typing the reduce accumulator ensures correct type inference.
     const totalCurrentValue = platforms.reduce((sum: number, p) => sum + (p.currentValue || 0), 0);
     const totalGainLoss = totalCurrentValue - totalInvested;
 

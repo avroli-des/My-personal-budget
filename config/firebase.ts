@@ -1,4 +1,3 @@
-// Fix: Use named imports for Firebase v9+ modular SDK to ensure proper module resolution.
 import { initializeApp, getApps, getApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';

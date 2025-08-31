@@ -201,7 +201,6 @@ const InvestmentAnalyticsDashboard: React.FC<InvestmentAnalyticsDashboardProps> 
                                     <Line data={investmentData.contributionsGrowthChart} options={chartOptions as any} />
                                 </ChartContainer>
                                 <ChartContainer title="Щомісячні інвестиції vs. Ціль">
-{/* FIX: Cast the data prop to 'any' to resolve the TypeScript error for mixed chart types (bar and line). */}
                                     <Bar data={investmentData.monthlyChart as any} options={chartOptions as any} />
                                 </ChartContainer>
                                  <ChartContainer title="Розподіл за платформами" placeholder={platforms.length === 0}>

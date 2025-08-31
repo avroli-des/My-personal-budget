@@ -21,7 +21,6 @@ const generateDummyIncomeSources = (): IncomeSource[] => {
     ];
 };
 
-// FIX: A function whose declared type is neither 'undefined', 'void', nor 'any' must return a value.
 export const generateDummyData = (): AppData => {
     const accounts = generateDummyAccounts();
     const incomeSources = generateDummyIncomeSources();

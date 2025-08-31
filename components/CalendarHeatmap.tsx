@@ -188,8 +188,6 @@ const CalendarHeatmap: React.FC<CalendarHeatmapProps> = ({ month: displayMonth, 
 
     if (row >= 0 && row < 6 && col >= 0 && col < 7) {
         const day = calendarDays[row][col];
-// FIX: The component function was incomplete. The logic for handleMouseMove is completed,
-// the component now returns JSX, and a default export has been added.
         if (day?.date) {
             const formattedDate = day.date.toLocaleDateString('uk-UA', { day: 'numeric', month: 'long', year: 'numeric' });
             const formattedAmount = formatDisplayAmount({

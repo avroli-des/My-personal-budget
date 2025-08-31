@@ -1,14 +1,16 @@
 import React from 'react';
 import { XMarkIcon } from './icons';
 
-interface AuthError {
+// FIX: Renamed from AuthError to DisplayableAuthError to match AuthContext.tsx.
+interface DisplayableAuthError {
   title: string;
   message: string;
   domain?: string;
 }
 
 interface AuthErrorDisplayProps {
-  error: AuthError;
+  // FIX: Updated prop type to use the renamed DisplayableAuthError interface.
+  error: DisplayableAuthError;
   onClose: () => void;
 }
 
